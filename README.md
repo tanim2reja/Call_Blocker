@@ -7,7 +7,7 @@
 3. [Tech Stack](#tech-stack)  
 4. [Getting Started](#getting-started)  
 5. [Screenshots](#screenshots)  
-6. [Contributing](#contributing)  
+6. [Contract](#Contact)  
 7. [License](#license)  
 
 ---
@@ -66,7 +66,7 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:2.44")
 }
 ```
-### Example of Room database
+### Integration Room database
 Database Definition:
 ```kotlin
 @Database(entities = [BlockedNumber::class], version = 1)
@@ -75,7 +75,7 @@ abstract class AppDatabase : RoomDatabase() {
 }
 ```
 
-Database configuration:
+**Database configuration:**
 ```kotlin
 class MyApplication : Application(){
     lateinit var database: AppDatabase
@@ -90,7 +90,7 @@ class MyApplication : Application(){
 }
 ```
 
-Define the Data Model:
+**Define the Data Model:**
 ```kotlin
 @Entity(tableName = "BlockedNumber")
 data class BlockedNumber(
@@ -98,7 +98,7 @@ data class BlockedNumber(
 )
 ```
 
-Create DAO Interface:
+**Create DAO Interface:**
 ```kotlin
 @Dao
 interface BlockedNumberDao {
@@ -128,19 +128,19 @@ fun blockNumber(number: String) {
 }
 ```
 ### Hilt intigration
-Hilt configuration with your application:
+**Hilt configuration with your application:**
 ```kotlin
 @HiltAndroidApp
 class MyApplication : Application(){
 // your code goes here 
 }
 ```
-and you must add this ```@AndroidEntryPoint``` to your Launcher Activity
+**must add this ```@AndroidEntryPoint``` to your Launcher Activity**
 ```kotlin
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() { }
 ```
-App module
+**App module**
 ```kotlin
 @Module
 @InstallIn(SingletonComponent::class)
@@ -162,7 +162,7 @@ object AppModule {
     }
 }
 ```
-viewmodel with injected repository
+**viewmodel with injected repository**
 ```kotlin
 @HiltViewModel
 class CallBlockerViewModel @Inject constructor(
@@ -172,7 +172,7 @@ class CallBlockerViewModel @Inject constructor(
 ```
 
 ### Call Blocking code
-create a service: add this code to manifest file
+**create a service:** add this code to manifest file
 ```xml
  <service android:name="com.jolpai.callblocker.service.CallBlockService"
             android:permission="android.permission.BIND_SCREENING_SERVICE"
@@ -215,8 +215,17 @@ override fun onScreenCall(details: Call.Details) {
         }
     }
 ```
-### Installation
+
+## Installation
 
 1. Clone the repository:  
    ```bash
    git clone https://github.com/yourusername/call-blocker.git
+   ```
+Open the project in your Android Studio and Run... Booommm...
+
+## Contact
+Tanim Reja
+Gmail: tanim2reja@gmail.com
+Linkedin: https://www.linkedin.com/in/tanim-reja-apps-developer/
+Skype: tanim_reja
